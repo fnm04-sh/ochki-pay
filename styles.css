@@ -84,12 +84,3 @@ button:hover {
 #confirmation {
     display: none;
 }
-
-select {
-    margin: 20px auto;
-    padding: 10px;
-    background-color: #292929;
-    color: white;
-    border-radius: 5px;
-    border: 1px solid #4CAF50;
-}
