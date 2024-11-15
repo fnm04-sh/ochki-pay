@@ -8,29 +8,22 @@ body {
     font-family: Arial, sans-serif;
     color: #E0E0E0; /* Светло-серый для текста */
     background-color: #121212; /* Очень тёмный фон */
-    display: flex; /* Используем Flexbox */
-    justify-content: center; /* Центрирует содержимое по горизонтали */
-    align-items: center; /* Центрирует содержимое по вертикали */
-    height: 100vh; /* Высота body на 100% от окна */
-    margin: 0; /* Убирает дефолтные отступы у body */
-    padding-top: 70px; /* Отступ сверху на 70px */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding-top: 70px;
 }
 
 .container {
-    text-align: center; /* Центрирует текст внутри контейнера */
-    background-color: #1F1F1F; /* Тёмно-серый фон контейнера */
+    text-align: center;
+    background-color: #1F1F1F;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Темная тень */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
     width: 400px;
-    max-width: 100%; /* Контейнер будет адаптивным */
-}
-
-h2 {
-    margin-top: 10px;
-    font-size: 24px;
-    font-weight: bold;
-    color: #FFFFFF; /* Белый для заголовков */
+    max-width: 100%;
 }
 
 .profile-img {
@@ -38,35 +31,58 @@ h2 {
     height: 100px;
     border-radius: 50%;
     margin: 0 auto;
-    border: 4px solid #4CAF50; /* Зеленая рамка вокруг изображения */
+    border: 4px solid #4CAF50;
 }
 
-.input, select {
+h1, h2 {
+    color: #FFFFFF;
+}
+
+.form-container {
+    margin-top: 20px;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+    font-size: 14px;
+    color: #E0E0E0;
+}
+
+input[type="number"], select {
     width: 80%;
-    padding: 8px;
+    padding: 10px;
     margin-top: 10px;
-    border: 1px solid #4CAF50; /* Светлый зеленый цвет для полей ввода */
+    border: 1px solid #4CAF50;
     border-radius: 4px;
-    background-color: #292929; /* Темный фон для полей */
-    color: #E0E0E0; /* Светлый цвет текста внутри поля */
+    background-color: #292929;
+    color: #E0E0E0;
+    font-size: 14px;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+input[type="number"]:focus, select:focus {
+    border-color: #4CAF50;
+    background-color: #333333;
+    outline: none;
 }
 
 button {
     width: 80%;
     padding: 10px;
     margin-top: 20px;
-    background-color: #4CAF50; /* Зеленая кнопка */
+    background-color: #4CAF50;
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     display: block;
     margin-left: auto;
-    margin-right: auto; /* Центрируем кнопку */
+    margin-right: auto;
 }
 
 button:hover {
-    background-color: #367d38; /* Более темный оттенок зеленого при наведении */
+    background-color: #367d38;
 }
 
 .confirmation {
