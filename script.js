@@ -5,12 +5,9 @@ document.getElementById("sendButton").addEventListener("click", function() {
     const currency = document.getElementById("currency").value;
 
     // Генерация кода подтверждения
-    confirmationCode = Math.floor(100000 + Math.random() * 900000); // 6-значный код
+    confirmationCode = Math.floor(100000 + Math.random() * 900000); // Генерируем код
 
-    // Показываем код подтверждения
-    alert(`Код подтверждения отправлен на ваш телефон: ${confirmationCode}`);
-
-    // Скрываем первое окно и показываем окно с кодом подтверждения
+    // Переход ко второму окну с вводом кода
     document.getElementById("formWindow").style.display = "none";
     document.getElementById("confirmationCodeContainer").style.display = "block";
 });
@@ -19,19 +16,21 @@ document.getElementById("confirmCodeButton").addEventListener("click", function(
     const inputCode = document.getElementById("confirmationCode").value;
 
     if (inputCode == confirmationCode) {
-        // Показываем прогресс-бар
-        const progressBarContainer = document.querySelector(".progress-bar-container");
-        progressBarContainer.style.display = "block";
+        // Переход к прогресс-бару
+        document.getElementById("confirmationCodeContainer").style.display = "none";
+        document.querySelector(".progress-bar-container").style.display = "block";
 
-        // Заполняем прогресс-бар
+        // Плавное изменение прогресса
         setTimeout(function() {
             document.querySelector(".progress").style.width = "100%";
         }, 100);
 
         // Показываем квитанцию
         setTimeout(function() {
-            document.getElementById("confirmationCodeContainer").style.display = "none";
+            document.querySelector(".progress-bar-container").style.display = "none";
             document.getElementById("confirmationPanel").style.display = "block";
+
+            // Заполняем данные квитанции
             document.getElementById("amountConfirmation").textContent = document.getElementById("amount").value;
             document.getElementById("currencyConfirmation").textContent = document.getElementById("currency").value;
             document.getElementById("recipient").textContent = "fnm04.sh";
