@@ -29,7 +29,7 @@ body {
 
 .container {
     text-align: center; /* Центрируем текст внутри контейнера */
-    background-color: #1F1F1F; /* Тёмно-серый фон контейнера */
+    background: linear-gradient(145deg, #1F1F1F, #4CAF50); /* Зеленый градиент с темным фоном */
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Тень */
