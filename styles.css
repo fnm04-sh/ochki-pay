@@ -135,11 +135,10 @@ button:hover {
     opacity: 0;
     animation: fadeIn 1s ease-out forwards;
     animation-delay: 1.5s; /* Задержка перед появлением квитанции */
-}
-
-.confirmation-panel {
     background: linear-gradient(145deg, #1F1F1F, #4CAF50);
     color: #E0E0E0;
+    border-radius: 10px; /* Скругление углов */
+    padding: 20px;
 }
 
 .confirmation-panel h2 {
