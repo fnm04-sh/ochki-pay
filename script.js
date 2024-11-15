@@ -18,38 +18,33 @@ const languages = {
   }
 };
 
-// Переменная для хранения языка сообщения
-let currentLanguage = "ru";
+// Переменная для хранения языка
+let currentLanguage = "ru"; // начальный язык
 
 // Функция для смены языка
 function changeLanguage(lang) {
-  // Сохраняем текущий язык перед изменением
+  // Обновляем текстовые элементы на странице
   const texts = languages[lang];
 
-  // Обновляем все текстовые элементы на странице
   document.getElementById("label").textContent = texts.heading;
   document.getElementById("amountLabel").textContent = texts.amountLabel;
   document.getElementById("currencyLabel").textContent = texts.currencyLabel;
   document.getElementById("sendButton").textContent = texts.sendButton;
 
-  // Сохраняем текущий язык (не меняем текст подтверждения)
-  if (document.getElementById("confirmation").style.display !== "block") {
-    currentLanguage = lang;
-  }
+  // Сохраняем текущий язык для последующего использования
+  currentLanguage = lang;
 }
 
 // Функция для обработки клика по кнопке "Отправить"
 function handleSendButtonClick() {
-  // Получаем значения из полей
   const amount = document.getElementById("amount").value;
   const currency = document.getElementById("currency").value;
 
-  // Если сумма введена, показываем успешное сообщение
+  // Если сумма и валюта введены, показываем окно подтверждения
   if (amount && currency) {
-    // Показываем блок с подтверждением
-    document.getElementById("confirmation").style.display = "block";
+    document.getElementById("confirmation").style.display = "block"; // Показываем окно подтверждения
 
-    // Используем язык, который был до отправки
+    // Обновляем текст на языке, выбранном до отправки
     const texts = languages[currentLanguage];
     document.getElementById("message").textContent = texts.confirmationMessage;
     document.getElementById("extra-message").textContent = texts.extraMessage;
@@ -64,8 +59,8 @@ document.getElementById("language").addEventListener("change", (event) => {
   changeLanguage(selectedLanguage);
 });
 
-// Устанавливаем начальный язык (например, русский)
-changeLanguage("ru");
+// Инициализация
+changeLanguage("ru"); // Устанавливаем начальный язык как русский
 
-// Инициализируем обработчик кнопки сразу после загрузки страницы
+// Слушаем нажатие на кнопку отправки
 document.getElementById("sendButton").addEventListener("click", handleSendButtonClick);
