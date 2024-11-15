@@ -15,5 +15,5 @@ document.getElementById("sendButton").addEventListener("click", function() {
     confirmation.style.display = "block";
 
     // Display the success message
-    document.getElementById("message").textContent = `Money sent successfully`;
+    document.getElementById("message").textContent = `Деньги отправлено успешно`;
 });
