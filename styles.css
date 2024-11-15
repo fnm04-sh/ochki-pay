@@ -148,17 +148,28 @@ button:hover {
 .confirmationCodeContainer, .confirmation-panel {
     display: none;
     text-align: center;
-    background-color: #292929;
+    background-color: #292929; /* Темно-серый фон для квитанции */
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .confirmation-panel {
-    background: linear-gradient(145deg, #1F1F1F, #4CAF50);
+    background-color: #292929; /* Темно-серый фон для самой транзакции */
     color: #E0E0E0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Тень для квитанции */
+    padding: 30px;
+    width: 400px;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .confirmation-panel h2 {
     margin-bottom: 20px;
+}
+
+.confirmation-panel p {
+    margin: 10px 0;
 }
