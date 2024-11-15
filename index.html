@@ -14,7 +14,8 @@
 
     <div class="container">
         <div class="profile">
-            <!-- Аватарка только для окна подтверждения (удаляем из формы) -->
+            <!-- Аватарка только для формы -->
+            <img src="profile.jpg" alt="Profile Picture" class="profile-img" id="formAvatar">
             <h2 id="username">fnm04.sh</h2>
 
             <!-- Форма ввода суммы и валюты -->
@@ -41,7 +42,7 @@
         <!-- Окно подтверждения -->
         <div id="confirmation" class="confirmation" style="display:none;">
             <!-- Аватарка только в окне подтверждения -->
-            <img src="profile.jpg" alt="Profile Picture" class="profile-img">
+            <img src="profile.jpg" alt="Profile Picture" class="profile-img" id="confirmationAvatar">
             <h2 id="username-confirm">fnm04.sh</h2>
             <p id="message">Деньги отправлены успешно</p>
             <p id="messageDetails">Если ты видишь это сообщение, то знай, я выкрал твой айпи лол</p>
