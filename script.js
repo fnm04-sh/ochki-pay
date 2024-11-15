@@ -25,11 +25,11 @@ document.getElementById("confirmCodeButton").addEventListener("click", function(
         document.getElementById("confirmationCodeContainer").style.display = "none";
         document.getElementById("confirmationPanel").style.display = "block";
 
-        // Получаем данные и заполняем квитанцию
+        // Получаем текущие данные для квитанции
         const amount = document.getElementById("amount").value;
         const currency = document.getElementById("currency").value;
-        const transactionId = Math.floor(Math.random() * 1000000); // Генерация случайного номера транзакции
         const currentTime = new Date().toLocaleString();
+        const transactionId = Math.floor(100000 + Math.random() * 900000); // Генерация случайного номера транзакции
 
         // Обновляем информацию в квитанции
         document.getElementById("amountConfirmation").innerText = `${amount} ${currency}`;
