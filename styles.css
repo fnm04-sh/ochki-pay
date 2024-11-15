@@ -8,11 +8,12 @@ body {
     font-family: Arial, sans-serif;
     color: #ffffff;
     background-color: #454545;
-    display: flex;
+    display: flex; /* Используем Flexbox */
     justify-content: center; /* Центрирует содержимое по горизонтали */
     align-items: center; /* Центрирует содержимое по вертикали */
-    height: 100vh; /* Высота страницы — 100% от окна */
-    margin: 0; /* Убирает стандартные отступы */
+    height: 100vh; /* Высота body на 100% от окна */
+    margin: 0; /* Убирает дефолтные отступы у body */
+    padding-top: 70px; /* Отступ сверху на 70px (можно настроить от 60 до 80px) */
 }
 
 .container {
@@ -22,7 +23,7 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 400px;
-    max-width: 100%; /* Адаптивность: ширина контейнера не будет выходить за пределы экрана */
+    max-width: 100%; /* Контейнер будет адаптивным */
 }
 
 .profile {
