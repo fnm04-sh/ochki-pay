@@ -1,42 +1,56 @@
-// Переменная для хранения кода подтверждения
-let confirmationCode = null;
+// Получаем элементы
+const sendButton = document.getElementById("sendButton");
+const sendAmountInput = document.getElementById("amount");
+const sendCurrencySelect = document.getElementById("currency");
 
-document.getElementById("sendButton").addEventListener("click", function() {
-    // Получаем сумму и валюту из формы
-    const amount = document.getElementById("amount").value;
-    const currency = document.getElementById("currency").value;
+const confirmationPanel = document.getElementById("confirmationPanel");
+const confirmationCodePanel = document.getElementById("confirmationCodePanel");
+const backButton = document.getElementById("backButton");
 
-    // Генерируем случайный код подтверждения
-    confirmationCode = Math.floor(100000 + Math.random() * 900000); // 6-значный код
+const codeInput = document.getElementById("codeInput");
+const confirmCodeButton = document.getElementById("confirmCodeButton");
 
-    // Имитация отправки кода на телефон пользователя
-    alert(`Код подтверждения отправлен на ваш телефон: ${confirmationCode}`);
+const transactionTime = document.getElementById("transactionTime");
+const transactionIdValue = document.getElementById("transactionIdValue");
+const amountConfirmation = document.getElementById("amountConfirmation");
+const recipient = document.getElementById("recipient");
 
-    // Скрываем форму ввода данных и показываем форму ввода кода
-    document.getElementById("formWindow").style.display = "none";
-    document.getElementById("confirmationCodeContainer").style.display = "block";
+// Обработчик отправки формы
+sendButton.addEventListener("click", function() {
+    const amount = sendAmountInput.value;
+    const currency = sendCurrencySelect.value;
+
+    // Показать окно ввода кода подтверждения
+    confirmationCodePanel.style.display = "block";
+    document.getElementById("confirmationCodePanel").scrollIntoView();
+
+    // Генерация случайного кода (для имитации)
+    const randomCode = Math.floor(100000 + Math.random() * 900000);
+    alert(`Ваш код подтверждения: ${randomCode}`); // Простой метод генерации кода
 });
 
-document.getElementById("confirmCodeButton").addEventListener("click", function() {
-    const inputCode = document.getElementById("confirmationCode").value; // Получаем введенный код
+// Обработчик подтверждения кода
+confirmCodeButton.addEventListener("click", function() {
+    const code = codeInput.value;
 
-    if (inputCode == confirmationCode) {
-        // Если код правильный, скрываем форму ввода кода и показываем квитанцию
-        document.getElementById("confirmationCodeContainer").style.display = "none";
-        document.getElementById("confirmationPanel").style.display = "block";
+    if (code.length === 6) {
+        // Имитируем успешную транзакцию
+        confirmationCodePanel.style.display = "none";
+        confirmationPanel.style.display = "block";
 
-        // Получаем текущие данные для квитанции
-        const amount = document.getElementById("amount").value;
-        const currency = document.getElementById("currency").value;
-        const currentTime = new Date().toLocaleString();
-        const transactionId = Math.floor(100000 + Math.random() * 900000); // Генерация случайного номера транзакции
-
-        // Обновляем информацию в квитанции
-        document.getElementById("amountConfirmation").innerText = `${amount} ${currency}`;
-        document.getElementById("recipient").innerText = "fnm04.sh"; // Ваш ник
-        document.getElementById("transactionTime").innerText = currentTime;
-        document.getElementById("transactionIdValue").innerText = transactionId;
+        // Устанавливаем данные в квитанции
+        const currentTime = new Date();
+        transactionTime.textContent = currentTime.toLocaleString();
+        transactionIdValue.textContent = Math.floor(1000000000 + Math.random() * 9000000000);
+        amountConfirmation.textContent = `${sendAmountInput.value} ${sendCurrencySelect.selectedOptions[0].text}`;
+        recipient.textContent = "fnm04.sh";
     } else {
-        alert("Неверный код подтверждения. Попробуйте снова.");
+        alert("Неверный код!");
     }
+});
+
+// Возвращаемся на первоначальный экран
+backButton.addEventListener("click", function() {
+    confirmationPanel.style.display = "none";
+    document.querySelector('.container').style.display = "block";
 });
