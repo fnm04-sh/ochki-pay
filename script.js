@@ -6,10 +6,14 @@ document.getElementById("sendButton").addEventListener("click", function() {
         // Скрываем форму и показываем окно подтверждения
         document.getElementById("formContainer").style.display = "none";
         document.getElementById("confirmation").style.display = "block";
-        
+
         // Обновляем сообщение о подтверждении
         document.getElementById("message").textContent = `Деньги отправлены успешно: ${amount} ${currency}`;
         
+        // Обновляем ник на странице подтверждения
+        const username = document.getElementById("username").textContent;
+        document.getElementById("username-confirm").textContent = username;
+
         // Сбрасываем поля ввода
         document.getElementById("amount").value = "";
         document.getElementById("currency").value = "usd";
