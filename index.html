@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,15 +7,14 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1 id="label">OchkiPay - Безопасный метод отправки денег</h1>
+
+    <h1>OchkiPay - Безопасный метод отправки денег</h1>
 
     <div class="container">
         <div class="profile">
             <img src="profile.jpg" alt="Profile Picture" class="profile-img">
             <h2 id="username">fnm04.sh</h2>
-            
-            <!-- Форма для ввода суммы и валюты -->
-            <div id="formContainer" class="form-container">
+            <div class="form-container">
                 <label for="amount">Сумма:</label>
                 <input type="number" id="amount" placeholder="Напиши сумму" required>
 
@@ -28,25 +27,25 @@
                     <option value="oil">BabyOil</option>
                     <option value="dcoin">DiddyCoin</option>
                     <option value="alda">AlenkaDa</option>
-                    <option value="tscoim">the sog coin</option>
+                    <option value="tscoim">The Sog Coin</option>
                 </select>
                 
                 <button id="sendButton">Отправить</button>
             </div>
-
-            <!-- Новая форма для ввода кода подтверждения -->
-            <div id="confirmationCodeContainer" class="form-container" style="display: none;">
-                <label for="confirmationCode">Введите код подтверждения:</label>
-                <input type="text" id="confirmationCode" placeholder="Код подтверждения" required>
-                <button id="confirmCodeButton">Подтвердить</button>
-            </div>
         </div>
 
-        <!-- Квитанция после успешной отправки -->
+        <!-- Форма для ввода кода подтверждения -->
+        <div id="confirmationCodeContainer" style="display: none;">
+            <label for="confirmationCode">Введите код подтверждения:</label>
+            <input type="text" id="confirmationCode" placeholder="Введите код" maxlength="6" required>
+            <button id="confirmCodeButton">Подтвердить</button>
+        </div>
+
+        <!-- Квитанция о транзакции, которая будет показана после ввода правильного кода -->
         <div id="confirmation" class="confirmation" style="display: none;">
-            <h3>Перевод успешен!</h3>
-            <p id="amountConfirmation">Сумма: 0 USD</p>
-            <p>Номер транзакции: <span id="transactionIdValue">000000</span></p>
+            <h2>Транзакция успешна!</h2>
+            <p>Сумма: <span id="amountConfirmation"></span></p>
+            <p>Номер транзакции: <span id="transactionIdValue"></span></p>
         </div>
     </div>
 
