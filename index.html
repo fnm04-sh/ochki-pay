@@ -43,24 +43,22 @@
             <button id="confirmCodeButton">Подтвердить</button>
         </div>
 
-        <!-- Прогресс-бар -->
-        <div class="progress-bar-container" style="display: none;">
-            <div class="progress"></div>
-        </div>
-
         <!-- Третье окно: Квитанция -->
         <div id="confirmationPanel" class="confirmation-panel" style="display: none;">
             <h2>Транзакция успешна!</h2>
-            <p>Сумма: <span id="amountConfirmation"></span> <span id="currencyConfirmation"></span></p>
+            <p>Сумма: <span id="amountConfirmation"></span></p>
             <p>Куда переведено: <span id="recipient"></span></p>
             <p>Дата и время перевода: <span id="transactionTime"></span></p>
             <p>Номер транзакции: <span id="transactionIdValue"></span></p>
-            <div id="qrCode"></div>
             <img src="profile.jpg" alt="Profile Picture" class="profile-img">
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.4.4/build/qrcode.min.js"></script>
+    <!-- Анимация -->
+    <div id="animationContainer" class="animation-container">
+        <div id="moneyMovement" class="money-movement"></div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
