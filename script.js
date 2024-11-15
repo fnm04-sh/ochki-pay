@@ -7,6 +7,7 @@ document.getElementById('sendButton').addEventListener('click', function() {
     if (amount && currency) {
         // Скрываем форму отправки
         document.querySelector('.form-container').style.display = 'none';
+        document.querySelector('.profile-img').style.display = 'none'; // Скрыть аватарку
         
         // Показываем окно подтверждения
         document.getElementById('confirmation').style.display = 'block';
