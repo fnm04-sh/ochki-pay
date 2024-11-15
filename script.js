@@ -1,42 +1,80 @@
-// Переменная для хранения кода подтверждения
 let confirmationCode = null;
+let achievements = JSON.parse(localStorage.getItem("achievements")) || [];
 
-document.getElementById("sendButton").addEventListener("click", function() {
-    // Получаем сумму и валюту из формы
-    const amount = document.getElementById("amount").value;
-    const currency = document.getElementById("currency").value;
+// Обновление прогресс-бара
+function updateProgress(step) {
+    const progress = document.querySelector('.progress');
+    const steps = 3;
+    progress.style.width = `${(step / steps) * 100}%`;
+}
 
-    // Генерируем случайный код подтверждения
-    confirmationCode = Math.floor(100000 + Math.random() * 900000); // 6-значный код
+// Добавление достижений
+function addAchievement(text) {
+    if (!achievements.includes(text)) {
+        achievements.push(text);
+        localStorage.setItem("achievements", JSON.stringify(achievements));
+    }
+    updateAchievements();
+}
 
-    // Имитация отправки кода на телефон пользователя
-    alert(`Код подтверждения отправлен на ваш телефон: ${confirmationCode}`);
+// Отображение достижений
+function updateAchievements() {
+    const achievementList = document.getElementById('achievementList');
+    achievementList.innerHTML = '';
+    achievements.forEach(ach => {
+        const li = document.createElement('li');
+        li.textContent = ach;
+        achievementList.appendChild(li);
+    });
+    document.getElementById('achievements').style.display = 'block';
+}
 
-    // Скрываем форму ввода данных и показываем форму ввода кода
+// Генерация QR-кода
+function generateQRCode(data) {
+    const qrContainer = document.getElementById('qrCode');
+    qrContainer.innerHTML = ''; // Очищаем контейнер
+    new QRCode(qrContainer, {
+        text: JSON.stringify(data),
+        width: 128,
+        height: 128
+    });
+}
+
+// Основной функционал
+document.getElementById("sendButton").addEventListener("click", function () {
+    confirmationCode = Math.floor(100000 + Math.random() * 900000);
+    alert(`Код подтверждения отправлен: ${confirmationCode}`);
+    updateProgress(1);
+    addAchievement("Первая отправка!");
     document.getElementById("formWindow").style.display = "none";
     document.getElementById("confirmationCodeContainer").style.display = "block";
 });
 
-document.getElementById("confirmCodeButton").addEventListener("click", function() {
-    const inputCode = document.getElementById("confirmationCode").value; // Получаем введенный код
-
+document.getElementById("confirmCodeButton").addEventListener("click", function () {
+    const inputCode = document.getElementById("confirmationCode").value;
     if (inputCode == confirmationCode) {
-        // Если код правильный, скрываем форму ввода кода и показываем квитанцию
-        document.getElementById("confirmationCodeContainer").style.display = "none";
-        document.getElementById("confirmationPanel").style.display = "block";
-
-        // Получаем текущие данные для квитанции
+        updateProgress(2);
         const amount = document.getElementById("amount").value;
         const currency = document.getElementById("currency").value;
-        const currentTime = new Date().toLocaleString();
-        const transactionId = Math.floor(100000 + Math.random() * 900000); // Генерация случайного номера транзакции
+        const transactionId = Math.floor(100000 + Math.random() * 900000);
 
-        // Обновляем информацию в квитанции
-        document.getElementById("amountConfirmation").innerText = `${amount} ${currency}`;
-        document.getElementById("recipient").innerText = "fnm04.sh"; // Ваш ник
-        document.getElementById("transactionTime").innerText = currentTime;
-        document.getElementById("transactionIdValue").innerText = transactionId;
+        document.getElementById("amountConfirmation").textContent = `${amount} ${currency}`;
+        document.getElementById("recipient").textContent = "fnm04.sh";
+        document.getElementById("transactionTime").textContent = new Date().toLocaleString();
+        document.getElementById("transactionIdValue").textContent = transactionId;
+
+        const transactionData = { amount, currency, transactionId };
+        generateQRCode(transactionData);
+        addAchievement("Успешная транзакция!");
+
+        document.getElementById("confirmationCodeContainer").style.display = "none";
+        document.getElementById("confirmationPanel").style.display = "block";
     } else {
-        alert("Неверный код подтверждения. Попробуйте снова.");
+        alert("Неверный код. Попробуйте снова.");
     }
+});
+
+document.getElementById("copyButton").addEventListener("click", function () {
+    const transactionId = document.getElementById("transactionIdValue").textContent;
+    navigator.clipboard.writeText(transactionId).then(() => alert("Номер транзакции скопирован!"));
 });
