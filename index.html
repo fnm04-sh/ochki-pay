@@ -10,6 +10,11 @@
 
     <h1>OchkiPay - Безопасный метод отправки денег</h1>
 
+    <!-- Прогресс-бар -->
+    <div class="progress-bar">
+        <div class="progress"></div>
+    </div>
+
     <div class="container">
         <!-- Первое окно: Ввод суммы и валюты -->
         <div id="formWindow" class="form-container">
@@ -50,10 +55,18 @@
             <p>Куда переведено: <span id="recipient"></span></p>
             <p>Дата и время перевода: <span id="transactionTime"></span></p>
             <p>Номер транзакции: <span id="transactionIdValue"></span></p>
-            <img src="profile.jpg" alt="Profile Picture" class="profile-img">
+            <div id="qrCode"></div>
+            <button id="copyButton">Скопировать номер</button>
         </div>
     </div>
 
+    <!-- Контейнер для достижений -->
+    <div id="achievements" class="achievements-container" style="display: none;">
+        <h3>Ваши достижения</h3>
+        <ul id="achievementList"></ul>
+    </div>
+
+    <script src="qrcode.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
