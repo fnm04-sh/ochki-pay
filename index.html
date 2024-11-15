@@ -11,40 +11,40 @@
     <h1>OchkiPay - Безопасный метод отправки денег</h1>
 
     <div class="container">
-        <div class="profile">
-            <img src="profile.jpg" alt="Profile Picture" class="profile-img">
-            <h2 id="username">fnm04.sh</h2>
-            <div class="form-container">
-                <label for="amount">Сумма:</label>
-                <input type="number" id="amount" placeholder="Напиши сумму" required>
+        <!-- Первое окно: Ввод суммы и валюты -->
+        <div id="formWindow" class="form-container">
+            <label for="amount">Сумма:</label>
+            <input type="number" id="amount" placeholder="Напиши сумму" required>
 
-                <label for="currency">Валюта:</label>
-                <select id="currency">
-                    <option value="usd">USD</option>
-                    <option value="eur">EUR</option>
-                    <option value="try">TRY</option>
-                    <option value="pln">PLN</option>
-                    <option value="oil">BabyOil</option>
-                    <option value="dcoin">DiddyCoin</option>
-                    <option value="alda">AlenkaDa</option>
-                    <option value="tscoim">The Sog Coin</option>
-                </select>
-                
-                <button id="sendButton">Отправить</button>
-            </div>
+            <label for="currency">Валюта:</label>
+            <select id="currency">
+                <option value="usd">USD</option>
+                <option value="eur">EUR</option>
+                <option value="try">TRY</option>
+                <option value="pln">PLN</option>
+                <option value="oil">BabyOil</option>
+                <option value="dcoin">DiddyCoin</option>
+                <option value="alda">AlenkaDa</option>
+                <option value="tscoim">The Sog Coin</option>
+            </select>
+            
+            <button id="sendButton">Отправить</button>
         </div>
-        
-        <!-- Форма для ввода кода подтверждения -->
-        <div id="confirmationCodeContainer" style="display: none;">
+
+        <!-- Второе окно: Ввод кода подтверждения -->
+        <div id="confirmationCodeContainer" class="confirmationCodeContainer" style="display: none;">
+            <p>На ваш телефон отправлен код подтверждения. Введите его ниже:</p>
             <label for="confirmationCode">Введите код подтверждения:</label>
             <input type="text" id="confirmationCode" placeholder="Введите код" maxlength="6" required>
             <button id="confirmCodeButton">Подтвердить</button>
         </div>
-        
-        <!-- Квитанция о транзакции -->
+
+        <!-- Третье окно: Квитанция -->
         <div id="confirmationPanel" class="confirmation-panel" style="display: none;">
             <h2>Транзакция успешна!</h2>
             <p>Сумма: <span id="amountConfirmation"></span></p>
+            <p>Куда переведено: <span id="recipient"></span></p>
+            <p>Дата и время перевода: <span id="transactionTime"></span></p>
             <p>Номер транзакции: <span id="transactionIdValue"></span></p>
             <img src="profile.jpg" alt="Profile Picture" class="profile-img">
         </div>
