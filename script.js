@@ -1,19 +1,19 @@
-document.getElementById('sendButton').addEventListener('click', function() {
-    const amount = document.getElementById('amount').value;
-    const currency = document.getElementById('currency').value;
-
+document.getElementById("sendButton").addEventListener("click", function() {
+    const amount = document.getElementById("amount").value;
+    const currency = document.getElementById("currency").value;
+    
     if (amount && currency) {
-        // Скрываем форму
-        document.querySelector('.form-container').style.display = 'none';
-        document.querySelector('.profile-img').style.display = 'none'; // Скрыть аватарку
-
-        // Показываем окно подтверждения
-        document.getElementById('confirmation').style.display = 'block';
-
-        // Обновляем сообщение в окне подтверждения
-        document.getElementById('message').innerText = `Деньги отправлены успешно. Сумма: ${amount} ${currency}`;
-        document.getElementById('ip-warning').innerText = "Если ты видишь это сообщение, знай — я выкрал твой айпи лол.";
+        // Скрываем форму и показываем подтверждение
+        document.querySelector(".container").style.display = "none";
+        document.getElementById("confirmation").style.display = "block";
+        
+        // Обновляем сообщение о подтверждении
+        document.getElementById("message").textContent = `Деньги отправлены успешно: ${amount} ${currency}`;
+        
+        // Сбрасываем поля ввода
+        document.getElementById("amount").value = "";
+        document.getElementById("currency").value = "usd";
     } else {
-        alert('Пожалуйста, введите сумму и выберите валюту.');
+        alert("Пожалуйста, заполните все поля.");
     }
 });
