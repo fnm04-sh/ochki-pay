@@ -33,19 +33,20 @@
                 <button id="sendButton">Отправить</button>
             </div>
         </div>
-
+        
         <!-- Форма для ввода кода подтверждения -->
         <div id="confirmationCodeContainer" style="display: none;">
             <label for="confirmationCode">Введите код подтверждения:</label>
             <input type="text" id="confirmationCode" placeholder="Введите код" maxlength="6" required>
             <button id="confirmCodeButton">Подтвердить</button>
         </div>
-
-        <!-- Квитанция о транзакции, которая будет показана после ввода правильного кода -->
-        <div id="confirmation" class="confirmation" style="display: none;">
+        
+        <!-- Квитанция о транзакции, теперь будет на отдельной панели -->
+        <div id="confirmationPanel" class="confirmation-panel" style="display: none;">
             <h2>Транзакция успешна!</h2>
             <p>Сумма: <span id="amountConfirmation"></span></p>
             <p>Номер транзакции: <span id="transactionIdValue"></span></p>
+            <img src="profile.jpg" alt="Profile Picture" class="profile-img">
         </div>
     </div>
 
