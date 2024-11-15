@@ -40,6 +40,7 @@ h1 {
     animation: slideIn 1s ease-out;
 }
 
+/* Окно с данными профиля */
 .profile-info {
     display: flex;
     flex-direction: column;
@@ -126,12 +127,13 @@ button:hover {
     margin-bottom: 20px;
 }
 
-.animation-container {
-    position: relative;
-    width: 100%;
+/* Центрирование окон по вертикали и горизонтали */
+.centered-window {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     height: 100%;
-    overflow: hidden;
-    pointer-events: none;
 }
 
 /* Анимация для элементов с деньгами */
