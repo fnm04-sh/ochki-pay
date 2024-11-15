@@ -1,34 +1,42 @@
-// Логика для отправки денег
+// Переменная для хранения кода подтверждения
+let confirmationCode = null;
+
 document.getElementById("sendButton").addEventListener("click", function() {
-    // Генерация случайного 6-значного кода подтверждения
-    const confirmationCode = Math.floor(100000 + Math.random() * 900000); // Генерация кода от 100000 до 999999
+    // Получаем сумму и валюту из формы
+    const amount = document.getElementById("amount").value;
+    const currency = document.getElementById("currency").value;
 
-    // Сохраняем код в переменной глобально для проверки
-    window.confirmationCode = confirmationCode;
-
-    // Показываем форму для ввода кода подтверждения
-    document.getElementById("confirmationCodeContainer").style.display = "block";
+    // Генерируем случайный код подтверждения
+    confirmationCode = Math.floor(100000 + Math.random() * 900000); // 6-значный код
 
     // Имитация отправки кода на телефон пользователя
     alert(`Код подтверждения отправлен на ваш телефон: ${confirmationCode}`);
+
+    // Скрываем форму ввода данных и показываем форму ввода кода
+    document.getElementById("formWindow").style.display = "none";
+    document.getElementById("confirmationCodeContainer").style.display = "block";
 });
 
 document.getElementById("confirmCodeButton").addEventListener("click", function() {
     const inputCode = document.getElementById("confirmationCode").value; // Получаем введенный код
-    const correctCode = window.confirmationCode; // Правильный код из глобальной переменной
 
-    if (inputCode == correctCode) {
-        // Если код правильный, скрываем форму ввода и показываем квитанцию
+    if (inputCode == confirmationCode) {
+        // Если код правильный, скрываем форму ввода кода и показываем квитанцию
         document.getElementById("confirmationCodeContainer").style.display = "none";
         document.getElementById("confirmationPanel").style.display = "block";
 
+        // Получаем данные и заполняем квитанцию
         const amount = document.getElementById("amount").value;
         const currency = document.getElementById("currency").value;
+        const transactionId = Math.floor(Math.random() * 1000000); // Генерация случайного номера транзакции
+        const currentTime = new Date().toLocaleString();
 
-        // Заполняем данные в квитанции
-        document.getElementById("amountConfirmation").textContent = `${amount} ${currency}`;
-        document.getElementById("transactionIdValue").textContent = Math.floor(Math.random() * 1000000); // Генерация случайного номера транзакции
+        // Обновляем информацию в квитанции
+        document.getElementById("amountConfirmation").innerText = `${amount} ${currency}`;
+        document.getElementById("recipient").innerText = "fnm04.sh"; // Ваш ник
+        document.getElementById("transactionTime").innerText = currentTime;
+        document.getElementById("transactionIdValue").innerText = transactionId;
     } else {
-        alert("Неверный код подтверждения.");
+        alert("Неверный код подтверждения. Попробуйте снова.");
     }
 });
