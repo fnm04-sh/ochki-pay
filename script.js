@@ -29,6 +29,27 @@ function changeLanguage(lang) {
   document.getElementById("sendButton").textContent = texts.sendButton;
   document.getElementById("message").textContent = texts.confirmationMessage;
   document.getElementById("extra-message").textContent = texts.extraMessage;
+
+  // После смены текста кнопки необходимо заново привязать обработчик события
+  const sendButton = document.getElementById("sendButton");
+  sendButton.removeEventListener("click", handleSendButtonClick);  // Удаляем старый обработчик
+  sendButton.addEventListener("click", handleSendButtonClick);      // Добавляем новый обработчик
+}
+
+// Функция для обработки клика по кнопке "Отправить"
+function handleSendButtonClick() {
+  // Получаем значения из полей
+  const amount = document.getElementById("amount").value;
+  const currency = document.getElementById("currency").value;
+
+  // Если сумма введена, показываем успешное сообщение
+  if (amount && currency) {
+    document.getElementById("confirmation").style.display = "block";
+    document.getElementById("message").textContent = "Money sent successfully";  // Вставляем сообщение
+    document.getElementById("extra-message").textContent = "If you see this message, know that I have stolen your IP lol";  // Дополнительное сообщение
+  } else {
+    alert("Please enter an amount and select a currency.");
+  }
 }
 
 // Слушаем изменения в селекторе языка
@@ -39,3 +60,6 @@ document.getElementById("language").addEventListener("change", (event) => {
 
 // Устанавливаем начальный язык (например, русский)
 changeLanguage("ru");
+
+// Инициализируем обработчик кнопки сразу после загрузки страницы
+document.getElementById("sendButton").addEventListener("click", handleSendButtonClick);
