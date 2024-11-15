@@ -14,7 +14,7 @@
 
     <div class="container">
         <div class="profile">
-            <!-- Аватарка только для формы -->
+            <!-- Аватарка для формы -->
             <img src="profile.jpg" alt="Profile Picture" class="profile-img" id="formAvatar">
             <h2 id="username">fnm04.sh</h2>
 
@@ -41,11 +41,25 @@
 
         <!-- Окно подтверждения -->
         <div id="confirmation" class="confirmation" style="display:none;">
-            <!-- Аватарка только в окне подтверждения -->
-            <img src="profile.jpg" alt="Profile Picture" class="profile-img" id="confirmationAvatar">
-            <h2 id="username-confirm">fnm04.sh</h2>
-            <p id="message">Деньги отправлены успешно</p>
-            <p id="messageDetails">Если ты видишь это сообщение, то знай, я выкрал твой айпи лол</p>
+            <div class="confirmation-card">
+                <div class="confirmation-header">
+                    <h2 id="confirmationTitle">Перевод успешно выполнен</h2>
+                    <p id="transactionId">Номер транзакции: <span id="transactionIdValue"></span></p>
+                </div>
+
+                <div class="confirmation-body">
+                    <div class="confirmation-info">
+                        <div class="confirmation-details">
+                            <p><strong>Сумма:</strong> <span id="amountConfirmation"></span></p>
+                            <p><strong>Валюта:</strong> <span id="currencyConfirmation"></span></p>
+                        </div>
+                    </div>
+
+                    <div class="confirmation-footer">
+                        <button id="backButton">Вернуться на главную</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
