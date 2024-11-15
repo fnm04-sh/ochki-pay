@@ -8,22 +8,26 @@ body {
     font-family: Arial, sans-serif;
     color: #E0E0E0; /* Светло-серый для текста */
     background-color: #121212; /* Очень тёмный фон */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    padding-top: 70px;
+    display: flex; /* Используем Flexbox для центрирования */
+    justify-content: center; /* Центрируем содержимое по горизонтали */
+    align-items: center; /* Центрируем содержимое по вертикали */
+    height: 100vh; /* Высота body на 100% от окна */
+    margin: 0; /* Убираем дефолтные отступы у body */
+    padding-top: 70px; /* Отступ сверху для тела страницы */
 }
 
 .container {
-    text-align: center;
-    background-color: #1F1F1F;
+    text-align: center; /* Центрируем текст внутри контейнера */
+    background-color: #1F1F1F; /* Тёмно-серый фон контейнера */
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-    width: 400px;
-    max-width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Тень */
+    width: 400px; /* Ширина контейнера */
+    max-width: 100%; /* Адаптивность, контейнер не выйдет за пределы экрана */
+}
+
+h1, h2 {
+    color: #FFFFFF; /* Белые заголовки */
 }
 
 .profile-img {
@@ -32,10 +36,6 @@ body {
     border-radius: 50%;
     margin: 0 auto;
     border: 4px solid #4CAF50;
-}
-
-h1, h2 {
-    color: #FFFFFF;
 }
 
 .form-container {
@@ -78,7 +78,7 @@ button {
     cursor: pointer;
     display: block;
     margin-left: auto;
-    margin-right: auto;
+    margin-right: auto; /* Центрируем кнопку */
 }
 
 button:hover {
