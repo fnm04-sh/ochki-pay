@@ -50,7 +50,7 @@ h1 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    animation: slideIn 1s ease-out;  /* Анимация для контейнера */
+    animation: slideIn 1s ease-out;
 }
 
 @keyframes slideIn {
@@ -187,7 +187,6 @@ button:hover {
     margin-bottom: 20px;
 }
 
-/* Минималистичное уведомление */
 .transaction-result {
     text-align: center;
     padding: 15px 25px;
@@ -198,7 +197,7 @@ button:hover {
     font-size: 16px;
     display: none;
     color: white;
-    animation: fadeInNotification 1s ease-out; /* Анимация уведомлений */
+    animation: fadeInNotification 1s ease-out;
 }
 
 @keyframes fadeInNotification {
@@ -223,10 +222,6 @@ button:hover {
 .transaction-result h3 {
     margin: 0;
     font-size: 18px;
-}
-
-.transaction-result p {
-    font-size: 14px;
 }
 
 .transaction-result .emoji {
