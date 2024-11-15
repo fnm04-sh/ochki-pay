@@ -2,11 +2,13 @@ document.getElementById("sendButton").addEventListener("click", function() {
     // Показ окна с подтверждением
     document.getElementById("confirmationCodeContainer").style.display = "block";
     document.getElementById("formWindow").style.display = "none";
+    document.getElementById("transactionResult").style.display = "none"; // Скрыть результат транзакции
 });
 
 document.getElementById("confirmCodeButton").addEventListener("click", function() {
     // Эмулируем проверку кода (в реальной ситуации это будет запрос к серверу)
-    let isCodeValid = Math.random() > 0.5; // Для примера случайная проверка
+    let confirmationCode = document.getElementById("confirmationCode").value;
+    let isCodeValid = confirmationCode === "123456"; // Пример правильного кода
 
     if (isCodeValid) {
         // Показать успешную транзакцию
