@@ -36,6 +36,10 @@ body {
     width: 400px; /* Ширина контейнера */
     max-width: 100%; /* Адаптивность, контейнер не выйдет за пределы экрана */
     animation: slideUp 1s ease-out; /* Анимация появления контейнера */
+    display: flex; /* Используем Flexbox для вертикального и горизонтального центрирования */
+    flex-direction: column; /* Размещаем элементы по колонке */
+    align-items: center; /* Центрируем все элементы по горизонтали */
+    justify-content: center; /* Центрируем все элементы по вертикали */
 }
 
 /* Анимация для появления контейнера снизу */
@@ -53,6 +57,7 @@ body {
 h1, h2 {
     color: #FFFFFF; /* Белые заголовки */
     animation: fadeIn 1.5s ease-in-out; /* Плавное появление заголовков */
+    margin-bottom: 20px; /* Добавляем отступ снизу */
 }
 
 .profile-img {
@@ -63,6 +68,7 @@ h1, h2 {
     border: 4px solid #4CAF50;
     opacity: 0;
     animation: fadeInProfile 1s ease-in-out forwards; /* Анимация для изображения */
+    margin-bottom: 20px; /* Отступ снизу для изображения */
 }
 
 /* Анимация для профиля (картинка) */
@@ -79,6 +85,10 @@ h1, h2 {
 
 .form-container {
     margin-top: 20px;
+    width: 100%; /* Убедимся, что форма занимает всю доступную ширину контейнера */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Центрируем элементы внутри формы */
 }
 
 label {
