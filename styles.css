@@ -1,3 +1,4 @@
+/* Исходный стиль, как было ранее */
 * {
     margin: 0;
     padding: 0;
@@ -27,7 +28,6 @@ h1 {
     animation: fadeInHeader 1.5s ease-out; /* Анимация для заголовка */
 }
 
-/* Анимация для плавного появления заголовка */
 @keyframes fadeInHeader {
     0% {
         opacity: 0;
@@ -40,21 +40,20 @@ h1 {
 }
 
 .container {
-    text-align: center; /* Центрируем текст внутри контейнера */
+    text-align: center;
     background: linear-gradient(145deg, #1F1F1F, #4CAF50); /* Зеленый градиент с темным фоном */
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Тень */
-    width: 400px; /* Ширина контейнера */
-    max-width: 100%; /* Адаптивность, контейнер не выйдет за пределы экрана */
-    animation: slideUp 1s ease-out; /* Анимация появления контейнера */
-    display: flex; /* Используем Flexbox для вертикального и горизонтального центрирования */
-    flex-direction: column; /* Размещаем элементы по колонке */
-    align-items: center; /* Центрируем все элементы по горизонтали */
-    justify-content: center; /* Центрируем все элементы по вертикали */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    width: 400px;
+    max-width: 100%;
+    animation: slideUp 1s ease-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Анимация для появления контейнера снизу */
 @keyframes slideUp {
     from {
         transform: translateY(50px);
@@ -73,11 +72,10 @@ h1 {
     margin: 0 auto;
     border: 4px solid #4CAF50;
     opacity: 0;
-    animation: fadeInProfile 1s ease-in-out forwards; /* Анимация для изображения */
-    margin-bottom: 20px; /* Отступ снизу для изображения */
+    animation: fadeInProfile 1s ease-in-out forwards;
+    margin-bottom: 20px;
 }
 
-/* Анимация для профиля (картинка) */
 @keyframes fadeInProfile {
     0% {
         opacity: 0;
@@ -91,10 +89,10 @@ h1 {
 
 .form-container {
     margin-top: 20px;
-    width: 100%; /* Убедимся, что форма занимает всю доступную ширину контейнера */
+    width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Центрируем элементы внутри формы */
+    align-items: center;
 }
 
 label {
@@ -115,10 +113,9 @@ input[type="number"], select {
     font-size: 14px;
     transition: border-color 0.3s ease, background-color 0.3s ease;
     opacity: 0;
-    animation: fadeInInputs 1.5s ease-out forwards; /* Анимация для полей ввода */
+    animation: fadeInInputs 1.5s ease-out forwards;
 }
 
-/* Анимация для полей ввода */
 @keyframes fadeInInputs {
     0% {
         opacity: 0;
@@ -149,10 +146,9 @@ button {
     margin-left: auto;
     margin-right: auto;
     opacity: 0;
-    animation: fadeInButton 1.8s ease-out forwards; /* Анимация для кнопки */
+    animation: fadeInButton 1.8s ease-out forwards;
 }
 
-/* Анимация для кнопки */
 @keyframes fadeInButton {
     0% {
         opacity: 0;
