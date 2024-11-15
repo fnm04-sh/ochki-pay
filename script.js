@@ -1,19 +1,30 @@
-document.getElementById("sendButton").addEventListener("click", function() {
-    // Get amount and selected currency
-    let amount = document.getElementById("amount").value;
-    let currency = document.getElementById("currency").value;
+// Объект с текстами для разных языков
+const languages = {
+  en: {
+    heading: "OchkiPay - Secure method of sending money",
+    amountLabel: "Amount:",
+    currencyLabel: "Currency:",
+    sendButton: "Send",
+    confirmationMessage: "Money sent successfully",
+    extraMessage: "If you see this message, know that I have stolen your IP lol",
+  },
+  ru: {
+    heading: "OchkiPay - Безопасный метод отправки денег",
+    amountLabel: "Сумма:",
+    currencyLabel: "Валюта:",
+    sendButton: "Отправить",
+    confirmationMessage: "Деньги отправлены успешно",
+    extraMessage: "Если ты видишь это сообщение, то знай, я выкрал твой айпи лол",
+  }
+};
 
-    // Check if the amount is valid
-    if (!amount || amount <= 0) {
-        alert("Please enter a valid amount!");
-        return;
-    }
+// Функция для смены языка
+function changeLanguage(lang) {
+  const texts = languages[lang];
 
-    // Hide the form and show the confirmation message
-    document.querySelector(".profile").style.display = "none";
-    let confirmation = document.getElementById("confirmation");
-    confirmation.style.display = "block";
-
-    // Display the success message
-    document.getElementById("message").textContent = `Деньги отправлено успешно`;
-});
+  // Обновляем все текстовые элементы на странице
+  document.getElementById("label").textContent = texts.heading;
+  document.getElementById("amountLabel").textContent = texts.amountLabel;
+  document.getElementById("currencyLabel").textContent = texts.currencyLabel;
+  document.getElementById("sendButton").textContent = texts.sendButton;
+  document.getElementBy
