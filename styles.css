@@ -27,6 +27,18 @@ h1 {
     animation: fadeInHeader 1.5s ease-out; /* Анимация для заголовка */
 }
 
+/* Анимация для плавного появления заголовка */
+@keyframes fadeInHeader {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .container {
     text-align: center; /* Центрируем текст внутри контейнера */
     background: linear-gradient(145deg, #1F1F1F, #4CAF50); /* Зеленый градиент с темным фоном */
@@ -40,6 +52,18 @@ h1 {
     flex-direction: column; /* Размещаем элементы по колонке */
     align-items: center; /* Центрируем все элементы по горизонтали */
     justify-content: center; /* Центрируем все элементы по вертикали */
+}
+
+/* Анимация для появления контейнера снизу */
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 .profile-img {
