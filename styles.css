@@ -1,4 +1,3 @@
-/* Общие стили */
 * {
     margin: 0;
     padding: 0;
@@ -7,27 +6,38 @@
 
 body {
     font-family: Arial, sans-serif;
-    color: #E0E0E0; /* Светло-серый для текста */
-    background-color: #121212; /* Очень тёмный фон */
-    display: flex; /* Используем Flexbox для центрирования */
-    flex-direction: column; /* Элементы будут расположены по колонке */
-    justify-content: center; /* Центрируем содержимое по вертикали */
-    align-items: center; /* Центрируем содержимое по горизонтали */
-    height: 100vh; /* Высота body на 100% от окна */
-    margin: 0; /* Убираем дефолтные отступы у body */
-    padding-top: 70px; /* Отступ сверху для тела страницы */
-    animation: fadeIn 1s ease-in; /* Анимация появления страницы */
+    color: #E0E0E0;
+    background-color: #121212;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding-top: 70px;
+    animation: fadeIn 1s ease-in;
 }
 
 h1 {
-    color: #FFFFFF; /* Белый цвет для заголовка */
-    margin-bottom: 20px; /* Отступ снизу */
+    color: #FFFFFF;
+    margin-bottom: 20px;
     text-align: center;
-    font-size: 32px; /* Размер шрифта заголовка */
-    margin-top: 0; /* Убираем отступ сверху */
+    font-size: 32px;
+    margin-top: 0;
+    animation: fadeInHeader 1.5s ease-out;
 }
 
-/* Контейнер для формы */
+@keyframes fadeInHeader {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .container {
     text-align: center;
     background: linear-gradient(145deg, #1F1F1F, #4CAF50);
@@ -54,6 +64,13 @@ h1 {
     }
 }
 
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
 .profile-img {
     width: 100px;
     height: 100px;
@@ -62,7 +79,11 @@ h1 {
     border: 4px solid #4CAF50;
     opacity: 0;
     animation: fadeInProfile 1s ease-in-out forwards;
-    margin-bottom: 20px;
+}
+
+.profile-info h2 {
+    color: #E0E0E0;
+    margin-top: 10px;
 }
 
 @keyframes fadeInProfile {
@@ -76,7 +97,6 @@ h1 {
     }
 }
 
-/* Формы ввода */
 .form-container {
     margin-top: 20px;
     width: 100%;
@@ -104,6 +124,12 @@ input[type="number"], select {
     transition: border-color 0.3s ease, background-color 0.3s ease;
 }
 
+input[type="number"]:focus, select:focus {
+    border-color: #4CAF50;
+    background-color: #333333;
+    outline: none;
+}
+
 button {
     width: 80%;
     padding: 10px;
@@ -119,33 +145,20 @@ button:hover {
     background-color: #367d38;
 }
 
-/* Стиль для панели подтверждения */
-#confirmationPanel {
-    background-color: #2C2C2C;
-    color: #FFFFFF;
-    border-radius: 10px;
-    padding: 20px;
-    text-align: center;
+.confirmationCodeContainer, .confirmation-panel {
     display: none;
-}
-
-/* Стиль для панели ввода кода */
-#confirmationCodePanel {
+    text-align: center;
     background-color: #292929;
-    color: #E0E0E0;
     padding: 20px;
     border-radius: 10px;
-    text-align: center;
-    display: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-#confirmationCodePanel input {
-    padding: 10px;
-    margin-top: 10px;
-    width: 60%;
-    border: 1px solid #4CAF50;
-    border-radius: 4px;
-    background-color: #333333;
+.confirmation-panel {
+    background: linear-gradient(145deg, #1F1F1F, #4CAF50);
     color: #E0E0E0;
-    font-size: 14px;
+}
+
+.confirmation-panel h2 {
+    margin-bottom: 20px;
 }
