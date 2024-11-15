@@ -27,4 +27,15 @@ function changeLanguage(lang) {
   document.getElementById("amountLabel").textContent = texts.amountLabel;
   document.getElementById("currencyLabel").textContent = texts.currencyLabel;
   document.getElementById("sendButton").textContent = texts.sendButton;
-  document.getElementBy
+  document.getElementById("message").textContent = texts.confirmationMessage;
+  document.getElementById("extra-message").textContent = texts.extraMessage;
+}
+
+// Слушаем изменения в селекторе языка
+document.getElementById("language").addEventListener("change", (event) => {
+  const selectedLanguage = event.target.value;
+  changeLanguage(selectedLanguage);
+});
+
+// Устанавливаем начальный язык (например, русский)
+changeLanguage("ru");
