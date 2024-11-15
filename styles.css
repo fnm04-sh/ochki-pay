@@ -7,7 +7,9 @@
 body {
     font-family: Arial, sans-serif;
     color: #E0E0E0;
-    background-color: #121212;
+    background: linear-gradient(120deg, #4CAF50, #2F2F2F); /* Градиентный фон */
+    backdrop-filter: blur(8px); /* Эффект размытия */
+    -webkit-backdrop-filter: blur(8px); /* Поддержка Safari */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -15,7 +17,19 @@ body {
     height: 100vh;
     margin: 0;
     padding-top: 70px;
+    position: relative;
     animation: fadeIn 1s ease-in;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3); /* Полупрозрачный слой */
+    z-index: -1; /* Расположить под содержимым */
 }
 
 h1 {
@@ -51,6 +65,7 @@ h1 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    z-index: 1; /* Обеспечивает расположение поверх фона */
 }
 
 @keyframes slideUp {
