@@ -5,7 +5,10 @@ document.getElementById("sendButton").addEventListener("click", function() {
     const currency = document.getElementById("currency").value;
 
     // Генерация кода подтверждения
-    confirmationCode = Math.floor(100000 + Math.random() * 900000);
+    confirmationCode = Math.floor(100000 + Math.random() * 900000); // 6-значный код
+
+    // Показываем код подтверждения
+    alert(`Код подтверждения отправлен на ваш телефон: ${confirmationCode}`);
 
     // Скрываем первое окно и показываем окно с кодом подтверждения
     document.getElementById("formWindow").style.display = "none";
@@ -16,9 +19,6 @@ document.getElementById("confirmCodeButton").addEventListener("click", function(
     const inputCode = document.getElementById("confirmationCode").value;
 
     if (inputCode == confirmationCode) {
-        // Имитация успешной транзакции
-        document.getElementById("confirmationCodeContainer").style.display = "none";
-
         // Показываем прогресс-бар
         const progressBarContainer = document.querySelector(".progress-bar-container");
         progressBarContainer.style.display = "block";
@@ -30,6 +30,7 @@ document.getElementById("confirmCodeButton").addEventListener("click", function(
 
         // Показываем квитанцию
         setTimeout(function() {
+            document.getElementById("confirmationCodeContainer").style.display = "none";
             document.getElementById("confirmationPanel").style.display = "block";
             document.getElementById("amountConfirmation").textContent = document.getElementById("amount").value;
             document.getElementById("currencyConfirmation").textContent = document.getElementById("currency").value;
