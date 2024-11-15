@@ -9,25 +9,25 @@ body {
     color: #ffffff;
     background-color: #454545;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0; /* Убираем дефолтный отступ */
+    justify-content: center; /* Центрирует содержимое по горизонтали */
+    align-items: center; /* Центрирует содержимое по вертикали */
+    height: 100vh; /* Высота страницы — 100% от окна */
+    margin: 0; /* Убирает стандартные отступы */
 }
 
 .container {
-    text-align: center; /* Центрирование текста */
+    text-align: center; /* Центрирует текст внутри контейнера */
     background-color: #292929;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 400px;
-    max-width: 100%; /* Делаем контейнер адаптивным */
+    max-width: 100%; /* Адаптивность: ширина контейнера не будет выходить за пределы экрана */
 }
 
 .profile {
     display: block;
-    text-align: center;
+    text-align: center; /* Центрирует содержимое внутри .profile */
 }
 
 .profile-img {
@@ -49,7 +49,7 @@ h2 {
 
 input[type="number"],
 select {
-    width: 80%; /* Сделано чуть уже для удобства */
+    width: 80%;
     padding: 8px;
     margin-top: 10px;
     border: 1px solid #ccc;
@@ -60,7 +60,7 @@ select {
 }
 
 button {
-    width: 80%; /* Центрируем кнопку */
+    width: 80%; /* Центрирует кнопку */
     padding: 10px;
     margin-top: 20px;
     background-color: #4CAF50;
@@ -70,7 +70,7 @@ button {
     cursor: pointer;
     display: block;
     margin-left: auto;
-    margin-right: auto; /* Центрируем кнопку */
+    margin-right: auto; /* Центрирует кнопку */
 }
 
 button:hover {
