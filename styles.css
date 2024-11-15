@@ -18,6 +18,16 @@ body {
     margin: 0;
     padding-top: 50px;
     backdrop-filter: blur(5px); /* Размытие фона */
+    animation: fadeIn 1s ease-out; /* Плавное появление страницы */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 h1 {
@@ -40,6 +50,9 @@ h1 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards; /* Плавное появление */
+    animation-delay: 0.5s; /* Задержка появления контейнера */
 }
 
 .profile-info {
@@ -110,13 +123,18 @@ button:hover {
     background-color: #367d38;
 }
 
-.confirmationCodeContainer, .confirmation-panel {
-    display: none;
-    text-align: center;
-    background-color: #292929;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+/* Появление формы с кодом */
+#confirmationCodeContainer {
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+    animation-delay: 1s; /* Задержка перед появлением формы */
+}
+
+/* Появление квитанции */
+#confirmationPanel {
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+    animation-delay: 1.5s; /* Задержка перед появлением квитанции */
 }
 
 .confirmation-panel {
@@ -131,6 +149,9 @@ button:hover {
 /* Прогресс-бар */
 .progress-bar-container {
     margin-top: 20px;
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+    animation-delay: 1.5s;
 }
 
 .progress-bar {
