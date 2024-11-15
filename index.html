@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,53 +8,49 @@
 </head>
 <body>
 
-    <h1 id="label">OchkiPay - Безопасный метод отправки денег</h1>
+    <h1>OchkiPay - Безопасный метод отправки денег</h1>
 
     <div class="container">
-        <div class="profile">
-            <img src="profile.jpg" alt="Profile Picture" class="profile-img">
-            <h2 id="username">fnm04.sh</h2>
+        <!-- Первое окно: Ввод суммы и валюты -->
+        <div id="formWindow" class="form-container">
+            <div class="profile-info">
+                <img src="profile.jpg" alt="Profile Picture" class="profile-img">
+                <h2 id="username">fnm04.sh</h2>
+            </div>
+            <label for="amount">Сумма:</label>
+            <input type="number" id="amount" placeholder="Напиши сумму" required>
+
+            <label for="currency">Валюта:</label>
+            <select id="currency">
+                <option value="usd">USD</option>
+                <option value="eur">EUR</option>
+                <option value="try">TRY</option>
+                <option value="pln">PLN</option>
+                <option value="oil">BabyOil</option>
+                <option value="dcoin">DiddyCoin</option>
+                <option value="alda">AlenkaDa</option>
+                <option value="tscoim">The Sog Coin</option>
+            </select>
             
-            <div class="form-container">
-                <label for="amount">Сумма:</label>
-                <input type="number" id="amount" placeholder="Введите сумму" required>
-
-                <label for="currency">Валюта:</label>
-                <select id="currency">
-                    <option value="usd" data-icon="💵">USD</option>
-                    <option value="eur" data-icon="💶">EUR</option>
-                    <option value="btc" data-icon="₿">BTC</option>
-                    <option value="try" data-icon="₺">TRY</option>
-                    <option value="pln" data-icon="zł">PLN</option>
-                    <option value="dcoin" data-icon="₿">DiddyCoin</option>
-                    <option value="alda" data-icon="🪙">AlenkaDa</option>
-                    <option value="tscoim" data-icon="🪙">The Sog Coin</option> <!-- Добавлено! -->
-                </select>
-                
-                <button id="sendButton">Отправить</button>
-            </div>
+            <button id="sendButton">Отправить</button>
         </div>
 
-        <!-- Окно подтверждения -->
-        <div id="confirmationPanel" style="display: none;">
-            <div class="confirmation-header">
-                <h2>Транзакция завершена</h2>
-                <img src="logo.png" alt="OchkiPay Logo" class="confirmation-logo">
-            </div>
-            <div class="confirmation-body">
-                <p><strong>Получатель:</strong> <span id="recipient">fnm04.sh</span></p>
-                <p><strong>Дата и время:</strong> <span id="transactionTime">00:00:00</span></p>
-                <p><strong>Номер транзакции:</strong> <span id="transactionIdValue">1234567890</span></p>
-                <p><strong>Сумма перевода:</strong> <span id="amountConfirmation">100 USD</span></p>
-                <button id="backButton">Вернуться</button>
-            </div>
-        </div>
-        
-        <!-- Окно для ввода кода подтверждения -->
-        <div id="confirmationCodePanel" style="display: none;">
-            <h2>Введите код подтверждения</h2>
-            <input type="text" id="codeInput" placeholder="Код из SMS" maxlength="6">
+        <!-- Второе окно: Ввод кода подтверждения -->
+        <div id="confirmationCodeContainer" class="confirmationCodeContainer" style="display: none;">
+            <p>На ваш телефон отправлен код подтверждения. Введите его ниже:</p>
+            <label for="confirmationCode">Введите код подтверждения:</label>
+            <input type="text" id="confirmationCode" placeholder="Введите код" maxlength="6" required>
             <button id="confirmCodeButton">Подтвердить</button>
+        </div>
+
+        <!-- Третье окно: Квитанция -->
+        <div id="confirmationPanel" class="confirmation-panel" style="display: none;">
+            <h2>Транзакция успешна!</h2>
+            <p>Сумма: <span id="amountConfirmation"></span></p>
+            <p>Куда переведено: <span id="recipient"></span></p>
+            <p>Дата и время перевода: <span id="transactionTime"></span></p>
+            <p>Номер транзакции: <span id="transactionIdValue"></span></p>
+            <img src="profile.jpg" alt="Profile Picture" class="profile-img">
         </div>
     </div>
 
