@@ -34,4 +34,20 @@ function showTransactionResult(status, message) {
     setTimeout(function() {
         resultElement.style.display = "none";
     }, 3000);
+
+    // Показать квитанцию
+    document.getElementById("confirmationPanel").style.display = "block";
+    document.getElementById("confirmationCodeContainer").style.display = "none";
+
+    // Получаем данные для квитанции
+    const amount = document.getElementById("amount").value;
+    const currency = document.getElementById("currency").value;
+    const currentTime = new Date().toLocaleString();
+    const transactionId = Math.floor(100000 + Math.random() * 900000); // Генерация случайного номера транзакции
+
+    // Обновляем информацию в квитанции
+    document.getElementById("amountConfirmation").innerText = `${amount} ${currency}`;
+    document.getElementById("recipient").innerText = "fnm04.sh"; // Ваш ник
+    document.getElementById("transactionTime").innerText = currentTime;
+    document.getElementById("transactionIdValue").innerText = transactionId;
 }
