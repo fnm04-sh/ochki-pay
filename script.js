@@ -3,8 +3,8 @@ document.getElementById("sendButton").addEventListener("click", function() {
     const currency = document.getElementById("currency").value;
     
     if (amount && currency) {
-        // Скрываем форму и показываем подтверждение
-        document.querySelector(".container").style.display = "none";
+        // Скрываем форму и показываем окно подтверждения
+        document.getElementById("formContainer").style.display = "none";
         document.getElementById("confirmation").style.display = "block";
         
         // Обновляем сообщение о подтверждении
