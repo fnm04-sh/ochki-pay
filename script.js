@@ -18,14 +18,14 @@ const languages = {
   }
 };
 
-// Переменная для хранения языка
+// Переменная для хранения текущего языка
 let currentLanguage = "ru"; // начальный язык
 
 // Функция для смены языка
 function changeLanguage(lang) {
-  // Обновляем текстовые элементы на странице
   const texts = languages[lang];
 
+  // Обновляем все текстовые элементы на странице
   document.getElementById("label").textContent = texts.heading;
   document.getElementById("amountLabel").textContent = texts.amountLabel;
   document.getElementById("currencyLabel").textContent = texts.currencyLabel;
