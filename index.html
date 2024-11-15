@@ -1,69 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OchkiPay - Безопасный метод отправки денег</title>
-    <!-- Подключаем стили -->
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-
-    <!-- Заголовок сайта -->
-    <h1 id="label">OchkiPay - Безопасный метод отправки денег</h1>
-
-    <div class="container">
-        <div class="profile">
-            <!-- Аватарка для формы -->
-            <img src="profile.jpg" alt="Profile Picture" class="profile-img" id="formAvatar">
-            <h2 id="username">fnm04.sh</h2>
-
-            <!-- Форма ввода суммы и валюты -->
-            <div class="form-container" id="formContainer">
-                <label for="amount">Сумма:</label>
-                <input type="number" id="amount" placeholder="Напиши сумму" required>
-
-                <label for="currency">Валюта:</label>
-                <select id="currency">
-                    <option value="usd">USD</option>
-                    <option value="eur">EUR</option>
-                    <option value="try">TRY</option>
-                    <option value="pln">PLN</option>
-                    <option value="oil">BabyOil</option>
-                    <option value="dcoin">DiddyCoin</option>
-                    <option value="alda">AlenkaDa</option>
-                    <option value="tscoim">the sog coin</option>
-                </select>
-
-                <button id="sendButton">Отправить</button>
-            </div>
+<div class="container">
+    <div class="profile">
+        <img src="profile.jpg" alt="Profile Picture" class="profile-img">
+        <h2 id="username">fnm04.sh</h2>
+        <div id="formContainer" class="form-container">
+            <label for="amount">Сумма:</label>
+            <input type="number" id="amount" placeholder="Напиши сумму" required>
+            
+            <label for="currency">Валюта:</label>
+            <select id="currency">
+                <option value="usd">USD</option>
+                <option value="eur">EUR</option>
+                <option value="try">TRY</option>
+                <option value="pln">PLN</option>
+                <option value="oil">BabyOil</option>
+                <option value="dcoin">DiddyCoin</option>
+                <option value="alda">AlenkaDa</option>
+                <option value="tscoim">the sog coin</option>
+            </select>
+            
+            <button id="sendButton">Отправить</button>
         </div>
-
-        <!-- Окно подтверждения -->
-        <div id="confirmation" class="confirmation" style="display:none;">
-            <div class="confirmation-card">
-                <div class="confirmation-header">
-                    <h2 id="confirmationTitle">Перевод успешно выполнен</h2>
-                    <p id="transactionId">Номер транзакции: <span id="transactionIdValue"></span></p>
-                </div>
-
-                <div class="confirmation-body">
-                    <div class="confirmation-info">
-                        <div class="confirmation-details">
-                            <p><strong>Сумма:</strong> <span id="amountConfirmation"></span></p>
-                            <p><strong>Валюта:</strong> <span id="currencyConfirmation"></span></p>
-                        </div>
-                    </div>
-
-                    <div class="confirmation-footer">
-                        <button id="backButton">Вернуться на главную</button>
-                    </div>
-                </div>
-            </div>
+        
+        <!-- Новый блок для ввода кода подтверждения -->
+        <div id="confirmationCodeContainer" class="form-container" style="display: none;">
+            <label for="confirmationCode">Введите код подтверждения:</label>
+            <input type="text" id="confirmationCode" placeholder="Код подтверждения" required>
+            <button id="confirmCodeButton">Подтвердить</button>
         </div>
     </div>
 
-    <!-- Подключаем скрипты -->
-    <script src="script.js"></script>
-</body>
-</html>
+    <div id="confirmation" class="confirmation" style="display: none;">
+        <h3>Перевод успешен!</h3>
+        <p id="amountConfirmation">Сумма: 0 USD</p>
+        <p>Номер транзакции: <span id="transactionIdValue">000000</span></p>
+    </div>
+</div>
