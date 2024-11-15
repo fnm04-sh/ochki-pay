@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OchkiPay - Безопасный метод отправки денег</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
 </head>
 <body>
 
@@ -43,23 +45,21 @@
             <button id="confirmCodeButton">Подтвердить</button>
         </div>
 
-        <!-- Прогресс-бар -->
-        <div id="progressBarContainer" class="progress-bar-container" style="display: none;">
-            <p>Загрузка...</p>
+        <!-- Прогресс бар -->
+        <div class="progress-bar-container" style="display: none;">
             <div class="progress-bar">
-                <div id="progress" class="progress"></div>
+                <div class="progress"></div>
             </div>
         </div>
 
         <!-- Третье окно: Квитанция -->
         <div id="confirmationPanel" class="confirmation-panel" style="display: none;">
-            <h2>Транзакция успешна! 🎉</h2>
+            <h2>Транзакция успешна!</h2>
             <p>Сумма: <span id="amountConfirmation"></span></p>
             <p>Куда переведено: <span id="recipient"></span></p>
             <p>Дата и время перевода: <span id="transactionTime"></span></p>
             <p>Номер транзакции: <span id="transactionIdValue"></span></p>
-            <div id="qrCode"></div> <!-- Место для QR-кода -->
-            <img src="profile.jpg" alt="Profile Picture" class="profile-img">
+            <div id="qrCode" style="margin-top: 20px;"></div>
         </div>
     </div>
 
