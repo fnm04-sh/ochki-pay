@@ -9,21 +9,33 @@ body {
     color: #E0E0E0; /* Светло-серый для текста */
     background-color: #121212; /* Очень тёмный фон */
     display: flex; /* Используем Flexbox для центрирования */
-    justify-content: center; /* Центрируем содержимое по горизонтали */
-    align-items: flex-start; /* Центрируем содержимое по вертикали, но выше */
+    flex-direction: column; /* Элементы будут расположены по колонке */
+    justify-content: center; /* Центрируем содержимое по вертикали */
+    align-items: center; /* Центрируем содержимое по горизонтали */
     height: 100vh; /* Высота body на 100% от окна */
     margin: 0; /* Убираем дефолтные отступы у body */
-    padding-top: 70px; /* Отступ сверху для тела страницы, чтобы сделать его выше */
+    padding-top: 70px; /* Отступ сверху для тела страницы */
     animation: fadeIn 1s ease-in; /* Анимация появления страницы */
 }
 
-/* Анимация плавного появления */
-@keyframes fadeIn {
-    from {
+h1 {
+    color: #FFFFFF; /* Белый цвет для заголовка */
+    margin-bottom: 20px; /* Отступ снизу */
+    text-align: center;
+    font-size: 32px; /* Размер шрифта заголовка */
+    margin-top: 0; /* Убираем отступ сверху */
+    animation: fadeInHeader 1.5s ease-out; /* Анимация для заголовка */
+}
+
+/* Анимация для плавного появления заголовка */
+@keyframes fadeInHeader {
+    0% {
         opacity: 0;
+        transform: translateY(-30px);
     }
-    to {
+    100% {
         opacity: 1;
+        transform: translateY(0);
     }
 }
 
@@ -40,7 +52,6 @@ body {
     flex-direction: column; /* Размещаем элементы по колонке */
     align-items: center; /* Центрируем все элементы по горизонтали */
     justify-content: center; /* Центрируем все элементы по вертикали */
-    margin-top: 50px; /* Добавим немного отступа сверху для контейнера */
 }
 
 /* Анимация для появления контейнера снизу */
@@ -53,12 +64,6 @@ body {
         transform: translateY(0);
         opacity: 1;
     }
-}
-
-h1, h2 {
-    color: #FFFFFF; /* Белые заголовки */
-    animation: fadeIn 1.5s ease-in-out; /* Плавное появление заголовков */
-    margin-bottom: 20px; /* Добавляем отступ снизу */
 }
 
 .profile-img {
