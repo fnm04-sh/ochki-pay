@@ -5,7 +5,9 @@ document.getElementById("sendButton").addEventListener("click", function() {
     const currency = document.getElementById("currency").value;
 
     // Генерация кода подтверждения
-    confirmationCode = Math.floor(100000 + Math.random() * 900000); // Генерируем код
+    confirmationCode = Math.floor(100000 + Math.random() * 900000); // Генерируем случайный код
+
+    alert("Ваш код подтверждения: " + confirmationCode);
 
     // Переход ко второму окну с вводом кода
     document.getElementById("formWindow").style.display = "none";
