@@ -1,21 +1,20 @@
-// Функция для обработки клика по кнопке "Отправить"
-function handleSendButtonClick() {
-  // Получаем значения из полей
-  const amount = document.getElementById("amount").value;
-  const currency = document.getElementById("currency").value;
+document.getElementById('sendButton').addEventListener('click', function() {
+    // Получаем значения из полей ввода
+    const amount = document.getElementById('amount').value;
+    const currency = document.getElementById('currency').value;
 
-  // Если сумма и валюта введены, показываем успешное сообщение
-  if (amount && currency) {
-    // Показываем блок с подтверждением
-    document.getElementById("confirmation").style.display = "block";
+    // Проверяем, чтобы сумма была введена
+    if (amount && currency) {
+        // Скрываем форму отправки
+        document.querySelector('.form-container').style.display = 'none';
+        
+        // Показываем окно подтверждения
+        document.getElementById('confirmation').style.display = 'block';
 
-    // Заполняем текст сообщения в блоке подтверждения
-    document.getElementById("message").textContent = "Деньги отправлены успешно";
-    document.getElementById("extra-message").textContent = "Если ты видишь это сообщение, то знай, я выкрал твой айпи лол";
-  } else {
-    alert("Please enter an amount and select a currency.");
-  }
-}
-
-// Инициализация обработчиков
-document.getElementById("sendButton").addEventListener("click", handleSendButtonClick);
+        // Обновляем сообщение в окне подтверждения
+        document.getElementById('message').innerText = `Деньги отправлены успешно. Сумма: ${amount} ${currency}`;
+        document.getElementById('ip-warning').innerText = "Если ты видишь это сообщение, знай — я выкрал твой айпи лол.";
+    } else {
+        alert('Пожалуйста, введите сумму и выберите валюту.');
+    }
+});
