@@ -1,5 +1,8 @@
 document.getElementById("sendButton").addEventListener("click", function() {
-    // Показ окна с подтверждением
+    // Показать уведомление о получении кода
+    document.getElementById("verificationNotification").style.display = "block";
+
+    // Показать окно для ввода кода подтверждения
     document.getElementById("confirmationCodeContainer").style.display = "block";
     document.getElementById("formWindow").style.display = "none";
     document.getElementById("transactionResult").style.display = "none"; // Скрыть результат транзакции
