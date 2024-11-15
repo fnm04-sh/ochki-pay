@@ -48,16 +48,14 @@ function showTransactionResult(isSuccess) {
         // Успешная транзакция
         resultContainer.className = "transaction-result success";
         resultContainer.innerHTML = `
-            <div class="success-icon">✔</div>
-            <h3>Транзакция успешна!</h3>
-            <p>Ваш перевод был завершен.</p>
+            <h3>Успех</h3>
+            <p>Перевод успешно завершен.</p>
         `;
     } else {
         // Ошибка транзакции
         resultContainer.className = "transaction-result error";
         resultContainer.innerHTML = `
-            <div class="error-icon">✖</div>
-            <h3>Ошибка транзакции</h3>
+            <h3>Ошибка</h3>
             <p>Произошла ошибка при выполнении перевода.</p>
         `;
     }
