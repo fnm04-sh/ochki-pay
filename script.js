@@ -1,67 +1,37 @@
-// Переменная для хранения кода подтверждения
-let confirmationCode = null;
-
 document.getElementById("sendButton").addEventListener("click", function() {
-    // Получаем сумму и валюту из формы
-    const amount = document.getElementById("amount").value;
-    const currency = document.getElementById("currency").value;
-
-    // Генерируем случайный код подтверждения
-    confirmationCode = Math.floor(100000 + Math.random() * 900000); // 6-значный код
-
-    // Имитация отправки кода на телефон пользователя
-    alert(`Код подтверждения отправлен на ваш телефон: ${confirmationCode}`);
-
-    // Скрываем первое окно, показываем второе (ввод кода)
-    document.getElementById("formWindow").style.display = "none";
+    // Показ окна с подтверждением
     document.getElementById("confirmationCodeContainer").style.display = "block";
+    document.getElementById("formWindow").style.display = "none";
 });
 
 document.getElementById("confirmCodeButton").addEventListener("click", function() {
-    const userInputCode = document.getElementById("confirmationCode").value;
+    // Эмулируем проверку кода (в реальной ситуации это будет запрос к серверу)
+    let isCodeValid = Math.random() > 0.5; // Для примера случайная проверка
 
-    // Проверяем правильность введенного кода
-    if (parseInt(userInputCode) === confirmationCode) {
-        // Если код верный, показываем квитанцию и уведомление
-        showTransactionResult(true);
-
-        // Отображаем данные в квитанции
-        document.getElementById("amountConfirmation").textContent = document.getElementById("amount").value;
-        document.getElementById("recipient").textContent = "fnm04.sh";
-        document.getElementById("transactionTime").textContent = new Date().toLocaleString();
-        document.getElementById("transactionIdValue").textContent = "TX123456789";
-        
-        // Переход к третьему окну (квитанция)
-        document.getElementById("confirmationCodeContainer").style.display = "none";
-        document.getElementById("confirmationPanel").style.display = "block";
+    if (isCodeValid) {
+        // Показать успешную транзакцию
+        showTransactionResult("success", "Транзакция успешна! Деньги отправлены.");
     } else {
-        // Если код неверный, отображаем ошибку
-        showTransactionResult(false);
+        // Показать ошибку транзакции
+        showTransactionResult("error", "Ошибка! Код неверный.");
     }
 });
 
-function showTransactionResult(isSuccess) {
-    const resultContainer = document.getElementById("transactionResult");
-    resultContainer.style.display = "block"; // Показать уведомление
+function showTransactionResult(status, message) {
+    let resultElement = document.getElementById("transactionResult");
+    resultElement.style.display = "block";
+    resultElement.classList.remove("success", "error");
 
-    if (isSuccess) {
-        // Успешная транзакция
-        resultContainer.className = "transaction-result success";
-        resultContainer.innerHTML = `
-            <h3>Успех</h3>
-            <p>Перевод успешно завершен.</p>
-        `;
+    if (status === "success") {
+        resultElement.classList.add("success");
+        resultElement.innerHTML = `<h3>Успех!</h3><p>${message}</p><div class="emoji">😊</div>`;
     } else {
-        // Ошибка транзакции
-        resultContainer.className = "transaction-result error";
-        resultContainer.innerHTML = `
-            <h3>Ошибка</h3>
-            <p>Произошла ошибка при выполнении перевода.</p>
-        `;
+        resultElement.classList.add("error");
+        resultElement.innerHTML = `<h3>Неудача!</h3><p>${message}</p><div class="emoji">😞</div>`;
     }
 
     // Скрыть уведомление через 3 секунды
-    setTimeout(() => {
-        resultContainer.style.display = "none";
+    setTimeout(function() {
+        resultElement.style.display = "none";
     }, 3000);
 }
