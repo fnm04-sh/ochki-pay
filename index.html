@@ -1,23 +1,28 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OchkiPay - Безопасный метод отправки денег</title>
+    <!-- Подключаем стили -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <!-- Заголовок сайта -->
     <h1 id="label">OchkiPay - Безопасный метод отправки денег</h1>
 
     <div class="container">
         <div class="profile">
+            <!-- Изображение профиля -->
             <img src="profile.jpg" alt="Profile Picture" class="profile-img">
             <h2 id="username">fnm04.sh</h2>
+
+            <!-- Форма ввода суммы и валюты -->
             <div class="form-container">
                 <label for="amount">Сумма:</label>
                 <input type="number" id="amount" placeholder="Напиши сумму" required>
-                
+
                 <label for="currency">Валюта:</label>
                 <select id="currency">
                     <option value="usd">USD</option>
@@ -27,9 +32,9 @@
                     <option value="oil">BabyOil</option>
                     <option value="dcoin">DiddyCoin</option>
                     <option value="alda">AlenkaDa</option>
-                    <option value="tscoim">The Sog Coin</option>
+                    <option value="tscoim">the sog coin</option>
                 </select>
-                
+
                 <button id="sendButton">Отправить</button>
             </div>
         </div>
@@ -38,10 +43,11 @@
             <img src="profile.jpg" alt="Profile Picture" class="profile-img">
             <h2 id="username-confirm">fnm04.sh</h2>
             <p id="message">Деньги отправлены успешно</p>
-            <p id="ip-warning">Если ты видишь это сообщение, знай — я выкрал твой айпи лол.</p>
+            <p id="message">Если ты видишь это сообщение, то знай, я выкрал твой айпи лол</p>
         </div>
     </div>
 
+    <!-- Подключаем скрипты -->
     <script src="script.js"></script>
 </body>
 </html>
