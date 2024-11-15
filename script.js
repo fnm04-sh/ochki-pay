@@ -1,14 +1,12 @@
 document.getElementById('sendButton').addEventListener('click', function() {
-    // Получаем значения из полей ввода
     const amount = document.getElementById('amount').value;
     const currency = document.getElementById('currency').value;
 
-    // Проверяем, чтобы сумма была введена
     if (amount && currency) {
-        // Скрываем форму отправки
+        // Скрываем форму
         document.querySelector('.form-container').style.display = 'none';
         document.querySelector('.profile-img').style.display = 'none'; // Скрыть аватарку
-        
+
         // Показываем окно подтверждения
         document.getElementById('confirmation').style.display = 'block';
 
