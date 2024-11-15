@@ -7,7 +7,7 @@
 body {
     font-family: Arial, sans-serif;
     color: #E0E0E0;
-    background: linear-gradient(135deg, #4CAF50, #616161); /* Градиент с зеленым и серым */
+    background: linear-gradient(135deg, #0A0A0A, #4CAF50); /* Черно-зеленый градиент */
     background-size: 100% 100%;
     background-attachment: fixed;
     display: flex;
