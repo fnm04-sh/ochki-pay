@@ -50,6 +50,18 @@ h1 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    animation: slideIn 1s ease-out;  /* Анимация для контейнера */
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 .profile-info {
@@ -91,6 +103,18 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    animation: fadeInForm 1s ease-out;
+}
+
+@keyframes fadeInForm {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 label {
@@ -140,6 +164,18 @@ button:hover {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.7s ease-out;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .confirmation-panel {
@@ -162,6 +198,18 @@ button:hover {
     font-size: 16px;
     display: none;
     color: white;
+    animation: fadeInNotification 1s ease-out; /* Анимация уведомлений */
+}
+
+@keyframes fadeInNotification {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .success {
@@ -179,4 +227,16 @@ button:hover {
 
 .transaction-result p {
     font-size: 14px;
+}
+
+.transaction-result .emoji {
+    font-size: 30px;
+}
+
+.success .emoji {
+    color: #4CAF50;
+}
+
+.error .emoji {
+    color: #F44336;
 }
