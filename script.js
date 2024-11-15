@@ -20,7 +20,7 @@ document.getElementById("confirmCodeButton").addEventListener("click", function(
     if (inputCode == correctCode) {
         // Если код правильный, скрываем форму ввода и показываем квитанцию
         document.getElementById("confirmationCodeContainer").style.display = "none";
-        document.getElementById("confirmation").style.display = "block";
+        document.getElementById("confirmationPanel").style.display = "block";
 
         const amount = document.getElementById("amount").value;
         const currency = document.getElementById("currency").value;
