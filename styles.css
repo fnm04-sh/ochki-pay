@@ -226,12 +226,5 @@ button:hover {
 
 .transaction-result .emoji {
     font-size: 30px;
-}
-
-.success .emoji {
-    color: #4CAF50;
-}
-
-.error .emoji {
-    color: #F44336;
+    margin-top: 10px;
 }
