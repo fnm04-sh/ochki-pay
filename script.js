@@ -18,8 +18,12 @@ const languages = {
   }
 };
 
+// Переменная для хранения языка сообщения
+let currentLanguage = "ru";
+
 // Функция для смены языка
 function changeLanguage(lang) {
+  // Сохраняем текущий язык перед изменением
   const texts = languages[lang];
 
   // Обновляем все текстовые элементы на странице
@@ -27,13 +31,11 @@ function changeLanguage(lang) {
   document.getElementById("amountLabel").textContent = texts.amountLabel;
   document.getElementById("currencyLabel").textContent = texts.currencyLabel;
   document.getElementById("sendButton").textContent = texts.sendButton;
-  document.getElementById("message").textContent = texts.confirmationMessage;
-  document.getElementById("extra-message").textContent = texts.extraMessage;
 
-  // После смены текста кнопки необходимо заново привязать обработчик события
-  const sendButton = document.getElementById("sendButton");
-  sendButton.removeEventListener("click", handleSendButtonClick);  // Удаляем старый обработчик
-  sendButton.addEventListener("click", handleSendButtonClick);      // Добавляем новый обработчик
+  // Сохраняем текущий язык (не меняем текст подтверждения)
+  if (document.getElementById("confirmation").style.display !== "block") {
+    currentLanguage = lang;
+  }
 }
 
 // Функция для обработки клика по кнопке "Отправить"
@@ -44,9 +46,13 @@ function handleSendButtonClick() {
 
   // Если сумма введена, показываем успешное сообщение
   if (amount && currency) {
+    // Показываем блок с подтверждением
     document.getElementById("confirmation").style.display = "block";
-    document.getElementById("message").textContent = "Money sent successfully";  // Вставляем сообщение
-    document.getElementById("extra-message").textContent = "If you see this message, know that I have stolen your IP lol";  // Дополнительное сообщение
+
+    // Используем язык, который был до отправки
+    const texts = languages[currentLanguage];
+    document.getElementById("message").textContent = texts.confirmationMessage;
+    document.getElementById("extra-message").textContent = texts.extraMessage;
   } else {
     alert("Please enter an amount and select a currency.");
   }
