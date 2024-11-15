@@ -35,9 +35,13 @@
             <button id="sendButton">Отправить</button>
         </div>
 
+        <!-- Уведомление о получении кода -->
+        <div id="verificationNotification" class="verification-notification" style="display: none;">
+            <p>На ваш телефон отправлен код подтверждения. Пожалуйста, введите его ниже.</p>
+        </div>
+
         <!-- Второе окно: Ввод кода подтверждения -->
         <div id="confirmationCodeContainer" class="confirmationCodeContainer" style="display: none;">
-            <p>На ваш телефон отправлен код подтверждения. Введите его ниже:</p>
             <label for="confirmationCode">Введите код подтверждения:</label>
             <input type="text" id="confirmationCode" placeholder="Введите код" maxlength="6" required>
             <button id="confirmCodeButton">Подтвердить</button>
