@@ -14,6 +14,17 @@ body {
     height: 100vh; /* Высота body на 100% от окна */
     margin: 0; /* Убираем дефолтные отступы у body */
     padding-top: 70px; /* Отступ сверху для тела страницы */
+    animation: fadeIn 1s ease-in; /* Анимация появления страницы */
+}
+
+/* Анимация плавного появления */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 .container {
@@ -24,10 +35,24 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Тень */
     width: 400px; /* Ширина контейнера */
     max-width: 100%; /* Адаптивность, контейнер не выйдет за пределы экрана */
+    animation: slideUp 1s ease-out; /* Анимация появления контейнера */
+}
+
+/* Анимация для появления контейнера снизу */
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 h1, h2 {
     color: #FFFFFF; /* Белые заголовки */
+    animation: fadeIn 1.5s ease-in-out; /* Плавное появление заголовков */
 }
 
 .profile-img {
@@ -36,6 +61,20 @@ h1, h2 {
     border-radius: 50%;
     margin: 0 auto;
     border: 4px solid #4CAF50;
+    opacity: 0;
+    animation: fadeInProfile 1s ease-in-out forwards; /* Анимация для изображения */
+}
+
+/* Анимация для профиля (картинка) */
+@keyframes fadeInProfile {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .form-container {
@@ -59,6 +98,20 @@ input[type="number"], select {
     color: #E0E0E0;
     font-size: 14px;
     transition: border-color 0.3s ease, background-color 0.3s ease;
+    opacity: 0;
+    animation: fadeInInputs 1.5s ease-out forwards; /* Анимация для полей ввода */
+}
+
+/* Анимация для полей ввода */
+@keyframes fadeInInputs {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 input[type="number"]:focus, select:focus {
@@ -78,7 +131,21 @@ button {
     cursor: pointer;
     display: block;
     margin-left: auto;
-    margin-right: auto; /* Центрируем кнопку */
+    margin-right: auto;
+    opacity: 0;
+    animation: fadeInButton 1.8s ease-out forwards; /* Анимация для кнопки */
+}
+
+/* Анимация для кнопки */
+@keyframes fadeInButton {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 button:hover {
