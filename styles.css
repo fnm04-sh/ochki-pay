@@ -9,8 +9,8 @@ body {
     color: #ffffff;
     background-color: #454545;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: center; /* Центрирует блоки по горизонтали */
+    align-items: center; /* Центрирует блоки по вертикали */
     height: 100vh;
 }
 
@@ -25,13 +25,14 @@ body {
 
 .profile {
     display: block;
-    text-align: center;
+    text-align: center; /* Центрирует содержимое внутри профиля */
 }
 
 .profile-img {
     width: 100px;
     height: 100px;
     border-radius: 50%;
+    margin-bottom: 10px; /* Отступ снизу для отступа между изображением и текстом */
 }
 
 h2 {
@@ -73,6 +74,9 @@ button:hover {
     text-align: center;
 }
 
+#confirmation {
+    display: none;
+}
 #confirmation {
     display: none;
 }
