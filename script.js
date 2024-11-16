@@ -26,7 +26,10 @@ document.getElementById("confirmCodeButton").addEventListener("click", function(
         showTransactionResult(true);
 
         // Отображаем данные в квитанции
-        document.getElementById("amountConfirmation").textContent = document.getElementById("amount").value;
+        const amount = document.getElementById("amount").value;
+        const currency = document.getElementById("currency").value;
+        document.getElementById("amountConfirmation").textContent = amount;
+        document.getElementById("currencyConfirmation").textContent = currency;
         document.getElementById("recipient").textContent = "fnm04.sh";
         document.getElementById("transactionTime").textContent = new Date().toLocaleString();
         document.getElementById("transactionIdValue").textContent = "TX123456789";
@@ -48,20 +51,18 @@ function showTransactionResult(isSuccess) {
         // Успешная транзакция
         resultContainer.className = "transaction-result success";
         resultContainer.innerHTML = `
-            <h3>Успех</h3>
-            <p>Перевод успешно завершен.</p>
+            <span>✅</span> Успех
         `;
     } else {
         // Ошибка транзакции
         resultContainer.className = "transaction-result error";
         resultContainer.innerHTML = `
-            <h3>Ошибка</h3>
-            <p>Произошла ошибка при выполнении перевода.</p>
+            <span>❌</span> Ошибка
         `;
     }
 
-    // Скрыть уведомление через 3 секунды
+    // Скрыть уведомление через 2 секунды
     setTimeout(() => {
         resultContainer.style.display = "none";
-    }, 3000);
+    }, 2000);
 }
